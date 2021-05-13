@@ -6,6 +6,7 @@
 
 import math
 import random
+random.seed(1)
 
 import torch
 import torch.utils.data as data
