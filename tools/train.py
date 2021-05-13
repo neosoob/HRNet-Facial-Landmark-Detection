@@ -21,6 +21,8 @@ from lib.config import config, update_config
 from lib.datasets import get_dataset
 from lib.core import function
 from lib.utils import utils
+import random
+torch.manual_seed(1)
 
 
 def parse_args():
