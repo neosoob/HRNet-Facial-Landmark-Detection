@@ -126,7 +126,7 @@ def main():
         logger.info('=> saving checkpoint to {}'.format(final_output_dir))
         print("best:", is_best)
         utils.save_checkpoint(
-            {"state_dict": model,
+            {"state_dict": model.module.state_dict(),
              "epoch": epoch + 1,
              "best_nme": best_nme,
              "optimizer": optimizer.state_dict(),
@@ -142,13 +142,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
-
-
-
-
