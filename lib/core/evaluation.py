@@ -79,7 +79,7 @@ def decode_preds(output, center, scale, res, rot):
 
     # Transform back
     for i in range(coords.size(0)):
-        preds[i] = transform_preds(coords[i], center[i], scale[i], res, rot)
+        preds[i] = transform_preds(coords[i], center[i], scale[i], res, rot[i])
 
     if preds.dim() < 3:
         preds = preds.view(1, preds.size())
