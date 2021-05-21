@@ -66,7 +66,7 @@ def train(config, train_loader, model, critertion, optimizer,
 
         # NME
         score_map = output.data.cpu()
-        preds = decode_preds(score_map, meta['center'], meta['scale'], [64, 64])
+        preds = decode_preds(score_map, meta['center'], meta['scale'], [64, 64], rot=meta['rot'])
 
         nme_batch = compute_nme(preds, meta)
         nme_batch_sum = nme_batch_sum + np.sum(nme_batch)
