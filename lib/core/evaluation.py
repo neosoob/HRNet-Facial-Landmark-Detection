@@ -61,7 +61,7 @@ def compute_nme(preds, meta):
     return rmse
 
 
-def decode_preds(output, center, scale, res):
+def decode_preds(output, center, scale, res, rot):
     coords = get_preds(output)  # float type
 
     coords = coords.cpu()
@@ -79,7 +79,7 @@ def decode_preds(output, center, scale, res):
 
     # Transform back
     for i in range(coords.size(0)):
-        preds[i] = transform_preds(coords[i], center[i], scale[i], res)
+        preds[i] = transform_preds(coords[i], center[i], scale[i], res, rot)
 
     if preds.dim() < 3:
         preds = preds.view(1, preds.size())
