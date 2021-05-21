@@ -92,10 +92,13 @@ def save_checkpoint(states, predictions, is_best,
         os.remove(latest_path)
     src=os.path.join(output_dir, filename)
     dst=latest_path
-    ab='/root/HRNet-Facial-Landmark-Detection/'
+    ab='/opt/data/private/HRNet-Facial-Landmark-Detection/'
     src=ab+src
     dst=ab+dst
-    os.symlink(os.path.join(output_dir, filename), latest_path)
+    os.symlink(src, dst)
+#     print('src is:', src)
+#     print('dst is:', dst)
+    
 
     if is_best and 'state_dict' in states.keys():
-        torch.save(states['state_dict'].module, os.path.join(output_dir, 'model_best.pth'))
+        torch.save(states['state_dict'], os.path.join(output_dir, 'model_best.pth'))
