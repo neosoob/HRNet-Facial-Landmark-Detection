@@ -105,7 +105,7 @@ class COFW(data.Dataset):
         tpts = torch.Tensor(tpts)
         center = torch.Tensor(center)
 
-        meta = {'index': idx, 'center': center, 'scale': scale,
+        meta = {'index': idx, 'center': center, 'scale': scale, 'rot': r,
                 'pts': torch.Tensor(pts), 'tpts': tpts}
 
         return img, target, meta
